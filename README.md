@@ -1,4 +1,4 @@
-#Bot Bancario Conversacional
+# Bot Bancario Conversacional
 
 ## Objetivo
 Diseñar una solución conversacional para un bot bancario en Telegram, integrando funcionalidades clave del sector financiero, inteligencia artificial y buenas prácticas de desarrollo.
