@@ -4,8 +4,10 @@ import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 import logging
+from db import baseDatos
 import sqlite3
 from datetime import datetime
+
 
 load_dotenv()
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -404,6 +406,13 @@ def handle_non_command_message(message):
 
 # COMANDO PARA INICIAR EL BOT AL EJECUTAR EL CODIGO
 if __name__ == "__main__":
-    logger.info("Iniciando el bot...")
+    main_logger = logging.getLogger(__name__)
+    main_logger.info("Iniciando script principal del bot...")
+
+    main_logger.info("Ejecutando configuración de base de datos...")
+    baseDatos.setup_database_and_insert_examples() 
+    main_logger.info("Configuración de base de datos completada.")
+
+    main_logger.info("Iniciando el bot de Telegram...")
     bot.infinity_polling(logger_level=logging.INFO) 
-    logger.info("El bot se ha detenido.")
+    main_logger.info("El bot de Telegram se ha detenido.")

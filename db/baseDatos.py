@@ -1,14 +1,13 @@
 import sqlite3
 import logging
 
-# Configuración básica de logging para ver qué está haciendo el script
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 DB_NAME = 'datos_del_usuario.db'
 
 def setup_database_and_insert_examples():
-    conn = None  # Inicializar conn a None
+    conn = None  
     try:
         conn = sqlite3.connect(DB_NAME)
         cursor = conn.cursor()
@@ -77,18 +76,14 @@ def setup_database_and_insert_examples():
 
         # --- Insertar datos de ejemplo ---
         logger.info("Insertando datos de ejemplo...")
-
-        # ----- IMPORTANTE: REEMPLAZA CON TU ID DE TELEGRAM REAL PARA PRUEBAS -----
-        TU_TELEGRAM_ID_DE_PRUEBA = 1490296660  # ¡CAMBIA ESTO POR TU ID!
-        # ------------------------------------------------------------------------
-        user_name_prueba = "Agustin" # O el nombre que quieras para tu usuario de prueba
+        TU_TELEGRAM_ID_DE_PRUEBA = 1490296660
+        user_name_prueba = "Agustin" 
 
         # 1. Insertar usuario de prueba
         cursor.execute("INSERT INTO users (telegram_id, name, pin) VALUES (?, ?, ?)",
-                    (TU_TELEGRAM_ID_DE_PRUEBA, user_name_prueba, "1234")) # Ejemplo de PIN
+                    (TU_TELEGRAM_ID_DE_PRUEBA, user_name_prueba, "1234")) 
         
         # 2. Insertar cuentas para el usuario de prueba
-        # Cuenta en Pesos/UYU
         cursor.execute("INSERT INTO cuentas (telegram_id, name, dinero, currency) VALUES (?, ?, ?, ?)",
                     (TU_TELEGRAM_ID_DE_PRUEBA, "Ahorro Pesos IceCash", 17000, "UYU"))
         cuenta_pesos_id = cursor.lastrowid # Obtenemos el ID de la cuenta recién insertada
@@ -115,7 +110,6 @@ def setup_database_and_insert_examples():
         ]
         cursor.executemany("INSERT INTO prestamos (telegram_id, name, dinero, dineroEntregado, due_date) VALUES (?, ?, ?, ?, ?)",
                         prestamos_data)
-
         conn.commit()
         logger.info("Datos de ejemplo insertados y cambios guardados.")
 
