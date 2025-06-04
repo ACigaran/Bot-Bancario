@@ -18,3 +18,7 @@ Al recibir mensajes como "Necesito un préstamo" o “¿Cuánto pagaría si pido
 El bot debera ser capaz de interpretar y responder preguntas relacionadas al negocio bancario como por ejemplo: “¿Qué tarjetas ofrecen?”, “¿Conviene un plazo fijo?”, “¿Cuál es la tasa para préstamos personales?”, etc.
 5. Persistencia.
 El bot guardara por usuario datos como: Informacion de cuenta, historial de movimientos, prestamos simulados, numero de interacciones.
+
+## Solucion obtenida
+### Click en la imagen para ver un video utilizando el bot
+[![Video prueba](https://img.freepik.com/vector-premium/concepto-chatbot-espacio-copia-texto-fondo-azul-vectorial-disenos-comunicacion-ia-asistencia-digital-proyectos-relacionados-tecnologia_1020043-804.jpg)](https://youtu.be/n_WYuVG-G4g)
